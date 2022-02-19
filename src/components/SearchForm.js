@@ -5,10 +5,11 @@ const SearchForm = ( {updateResults} ) => {
     event.preventDefault();
     let searchQuery = document.getElementById('search-query').value;
 
-    const fetchData = await fetch(`https://www.episodate.com/api/search?q=${searchQuery}&page=1`);
-
-    const fetchDataJSON = await fetchData.json();
-    updateResults(fetchDataJSON);
+    // get main show data
+    const fetchMainData = await fetch(`https://www.episodate.com/api/search?q=${searchQuery}&page=1`);
+    const mainData = await fetchMainData.json();
+    
+    updateResults(mainData);
   }
 
   return (

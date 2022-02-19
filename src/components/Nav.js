@@ -1,13 +1,20 @@
-import { Link } from 'react-router-dom'
+import NavLoggedIn from './NavLoggedIn';
+import NavLoggedOut from './NavLoggedOut';
 
-const Nav = () => {
+// logged in status hardcoded for now
+const Nav = ({loggedIn, loginUser, loginAuthError, signupAuthError, clearAuthError, signupUser, modalOpen, signoutUser, currUser}) => {
+
   return (
     <div>
-      <nav>
-          <Link to='/'>Search</Link>
-          <Link to='current-shows'>Current Shows</Link>
-          <Link to='wishlist'>Wishlist</Link>
-      </nav>
+      {loggedIn ? <NavLoggedIn signoutUser={signoutUser} currUser={currUser}/> : 
+                  <NavLoggedOut 
+                      loginUser={loginUser} 
+                      loginAuthError={loginAuthError} 
+                      signupAuthError={signupAuthError}
+                      clearAuthError={clearAuthError} 
+                      signupUser={signupUser} 
+                      modalOpen={modalOpen}
+                  />}
     </div>
   )
 };

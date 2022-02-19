@@ -1,11 +1,14 @@
 import Result from "./Result";
 
-const SearchResults = ( {results} ) => { 
+const SearchResults = ( {results, metaResults, addToPage} ) => { 
 
   return (
-      <div>
-          {results.map(result => (
-              <Result key={Math.random(10)} name={result.name}/>
+      <div id='results-container'>
+          {results.map((result, index) => (
+              <Result   key={result.id} 
+                        result={result}
+                        metaResult={metaResults[index]}
+                        addToPage={addToPage} />
           ))}
       </div>
   )
