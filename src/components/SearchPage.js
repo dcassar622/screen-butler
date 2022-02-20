@@ -13,13 +13,15 @@ const SearchPage = ( { addToPage } ) => {
             let showMetaData = await fetch (`https://www.episodate.com/api/show-details?q=${item.id}`);
             let showMetaDataJSON = await showMetaData.json();
             setMetaResults([...metaResults, showMetaDataJSON])
+            console.log(showMetaDataJSON)
         })
     }
 
     const updateResults = (mainData) => {
-        if (mainData !=='') {
+        if (mainData !==[]) {
             setNoResultsFound(false)
             setResults(mainData.tv_shows)
+            console.log('setting results')
             setMetaData(mainData.tv_shows)
         }
         else {
@@ -31,7 +33,9 @@ const SearchPage = ( { addToPage } ) => {
         <div>
             <SearchForm updateResults={updateResults}/>
             { noResultsFound ? <h4>No Results Found</h4> : 
-                <SearchResults results={results}
+                <SearchResults 
+                           className='results-wrapper'
+                           results={results}
                            metaResults={metaResults}
                            addToPage={addToPage}
                            />}

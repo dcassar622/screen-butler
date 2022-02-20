@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 
+/******************** MACRO **********************/
+
 body {
   margin: 0;
+  width: 100%;
   font-family:'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: all 3s ease-in-out;
 }
 
 code {
@@ -17,27 +21,120 @@ code {
 }
 
 .error-message {
-  color: rgb(153, 59, 59);
+  color: rgb(226, 166, 208);
   font-style: italic;
+}
+
+/******************** BUTTONS **********************/
+
+.action-button {
+  display: block;
+  width: 30%;
+  background-color: rgb(229, 238, 243);
+}
+
+.action-button:hover {
+  cursor: pointer;
+}
+
+/******************** PAGES **********************/
+
+.pages-wrapper {
+  margin: 0 50px;
 }
 
 /******************** NAV **********************/
 
-.nav-right {
+.navbar-main {
+  width: 100%;
+  background-color: teal;
   display: flex;
   align-items: center;
 }
 
-#mobile-
+
+.nav-right-content {
+  position: absolute;
+  right: 0;
+  border: 10px solid yellow;
+  display: gflexrid;
+}
+
+
 
 /******************** RESULT **********************/
 
-#results-container {
-  margin: 50px 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+.result-wrapper {
+  max-width: 25%;
+  border: 3px solid rgb(216, 183, 179);
+  border-radius: 10px;
 }
 
-.result-container {
-  border: 1px solid black;
+.result-button-wrapper {
+  background: red;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+}
+
+.result-info-icon:hover {
+  transform: scale(1.2);
+}
+
+
+/******************** CURRENT SHOWS **********************/
+
+.results-wrapper {
+  margin-top: 50px;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.current-show-wrapper {
+  width: 20%;
+  border: 2px solid teal;
+  background: pink;
+  height: 100%;
+}
+
+.show-image {
+  height: 200px;
+  width: 100%;
+}
+
+.show-title { 
+  text-align: center;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.show-progress-wrapper {
+  border-top: 1px solid black;
+  background: white;
+}
+
+.tracker-area-title {
+  text-align: center;
+}
+
+.buttons-wrapper {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.current-number-tracker {
+  font-weight: 600;
+  font-size: larger;
+}
+
+.curr-remove-btn {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
 }

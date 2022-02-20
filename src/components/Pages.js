@@ -92,7 +92,7 @@ const Pages = ({ currUser }) => {
 
   
     return (
-    <div>
+    <div className='pages-wrapper'>
         <Routes>
             <Route path='/' 
                 element={<SearchPage addToPage={addToPage}/>} exact />

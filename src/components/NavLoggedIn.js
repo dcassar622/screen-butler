@@ -1,33 +1,28 @@
 import { Link } from 'react-router-dom';
-import { Navbar, Icon, Button } from 'react-materialize';
+import { Navbar, Button } from 'react-materialize';
 
 const NavLoggedIn = ({ signoutUser, currUser }) => {
   return (
     <Navbar
-    alignLinks="left"
-    id="nav-logged-in"
-    menuIcon={<Icon>menu</Icon>}
+    className='navbar-main'
     options={{
       draggable: true,
-      edge: 'left',
+      edge: "left",
       inDuration: 250,
       outDuration: 200,
       preventScrolling: true
     }}
     >
-         <Link to='/'>Search</Link>
-         <Link to='current-shows'>Current Shows</Link> 
-         <Link to='wishlist'>Wishlist</Link>
-         <div id='nav-right'>
+        <Link to='/'>Search</Link>
+        <Link to='current-shows'>Current Shows</Link> 
+        <Link to='wishlist'>Wishlist</Link>
+        <div className='nav-right-content'>
           <p>Welcome {currUser.name}</p>
-          <Button node="button" style={{ marginRight: '5px' }} 
-                                waves="light" 
-                                onClick={signoutUser}
-                                >
-                                Log Out
-                                
+          <Button node="button" style={{ marginRight: '5px' }} waves="light" 
+                  onClick={signoutUser} >
+                    Log Out
           </Button>
-         </div>
+        </div>
          
     </ Navbar>
   )

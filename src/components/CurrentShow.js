@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Row, Card, Col, Icon, CardTitle } from 'react-materialize'
 
 const CurrentShow = ({show, removeFromPage}) => {
 
@@ -22,28 +23,37 @@ const CurrentShow = ({show, removeFromPage}) => {
   }
 
   return (
-    <div>
-      <img src={show.image_thumbnail_path} alt='show-poster' />
-            <p> {show.name} </p>
-            <p> {show.start_date.substring(0,4)} </p>
-            <p> {show.network} </p>
-            <div className='show-progress-container'>
-                <h4>Show Progress</h4>
-                <div className='season-container'>
-                  <p>Season</p>
-                  <p>{season}</p>
-                  <button onClick={(event) => updateSeason(event)}>+</button>
-                  <button onClick={(event) => updateSeason(event)}>-</button>
-                </div>
-                <div className='episode-container'>
-                  <p>Episode</p>
-                  <p>{episode}</p>
-                  <button onClick={(event) => updateEpisode(event)}>+</button>
-                  <button onClick={(event) => updateEpisode(event)}>-</button>
-                </div>
-              <button id='curr-remove-btn' onClick={(event) => removeFromPage('current', show, event)}>Remove</button>
+        <div className='current-show-wrapper'>
+          <img src={show.image_thumbnail_path} alt='show-poster' className='show-image'/>
+          
+            <p className='show-title'>{show.name}</p>
+         
+          <div className='show-progress-wrapper'>
+            <div className='tracker-area-wrapper'>
+              <p className='tracker-area-title'>Season</p>
+              <div className='buttons-wrapper'>
+                <button className='action-button' onClick={(event) => updateSeason(event)}>-</button>
+                <p className='current-number-tracker'>{season}</p>
+                <button className='action-button' onClick={(event) => updateSeason(event)}>+</button>
+              </div>
             </div>
-    </div>
+            <div className='tracker-area-wrapper'>
+              <p className='tracker-area-title'>Episode</p>
+              <div className='buttons-wrapper'>
+                <button className='action-button' onClick={(event) => updateEpisode(event)}>-</button>
+                <p className='current-number-tracker'>{episode}</p>
+                <button className='action-button' onClick={(event) => updateEpisode(event)}>+</button>
+              </div>
+            </div>
+          </div>
+          <button className="waves-effect waves-light btn-small curr-remove-btn" 
+                onClick={(event) => removeFromPage('current', show, event)}>
+                Remove        
+          </button>
+        </div>
+  
+        
+     
   )
 };
 

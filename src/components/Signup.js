@@ -12,7 +12,6 @@ const Signup = ({signupUser, signupAuthError, clearAuthError, modalOpen }) => {
   useEffect(() => {
     if (signupAuthError !== '') { 
       setErrorMessage(signupAuthError) }
-      console.log(modalOpen)
   })
 
   
