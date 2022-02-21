@@ -1,30 +1,20 @@
 import { Link } from 'react-router-dom';
-import { Navbar, Button } from 'react-materialize';
+import logo from '../logo.png'
 
 const NavLoggedIn = ({ signoutUser, currUser }) => {
   return (
-    <Navbar
-    className='navbar-main'
-    options={{
-      draggable: true,
-      edge: "left",
-      inDuration: 250,
-      outDuration: 200,
-      preventScrolling: true
-    }}
-    >
-        <Link to='/'>Search</Link>
-        <Link to='current-shows'>Current Shows</Link> 
-        <Link to='wishlist'>Wishlist</Link>
-        <div className='nav-right-content'>
-          <p>Welcome {currUser.name}</p>
-          <Button node="button" style={{ marginRight: '5px' }} waves="light" 
-                  onClick={signoutUser} >
-                    Log Out
-          </Button>
-        </div>
-         
-    </ Navbar>
+    <nav className='navbar-main'>
+      <img src={logo} alt='logo' id='logo'/>
+      <div className='nav-links-wrapper'>
+        <Link className='nav-link' to='/'>Search</Link>
+        <Link className='nav-link' to='current-shows'>Current Shows</Link> 
+        <Link className='nav-link' to='wishlist'>Wishlist</Link>
+      </div> 
+      <div className='nav-right-wrapper'>
+        <p id='username-wrapper'>Hello {currUser.name}</p>
+        <p id='logout-wrapper' onClick={signoutUser} > Log Out </p>
+      </div>       
+    </ nav>
   )
 };
 

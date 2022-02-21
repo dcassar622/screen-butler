@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Row, Card, Col, Icon, CardTitle } from 'react-materialize'
 
 const CurrentShow = ({show, removeFromPage}) => {
 
@@ -8,41 +7,39 @@ const CurrentShow = ({show, removeFromPage}) => {
   let [episode, setEpisode] = useState(1)
 
 
-  const updateSeason = (event) => {
-    event.target.textContent === '+' ? setSeason(season++) : (
-        season > 0 ? 
-        setSeason(season--) : alert(`season number must be at least 1`)
+  const updateSeason = (operator) => {
+    operator === '+' ? setSeason(season + 1) : (
+        season > 1 ? 
+        setSeason(season - 1) : alert(`season number must be at least 1`)
       )
   }
 
-  const updateEpisode = (event) => {
-    event.target.textContent === '+' ? setEpisode(episode++) : (
-        episode > 0 ? 
-        setEpisode(episode--) : alert(`episode number must be at least 1`)
+  const updateEpisode = (operator) => {
+    operator === '+' ? setEpisode(episode + 1) : (
+        episode > 1 ? 
+        setEpisode(episode - 1) : alert(`episode number must be at least 1`)
       )
   }
 
   return (
-        <div className='current-show-wrapper'>
+        <div className='show-wrapper'>
           <img src={show.image_thumbnail_path} alt='show-poster' className='show-image'/>
-          
-            <p className='show-title'>{show.name}</p>
-         
+          <p className='show-title'>{show.name}</p>
           <div className='show-progress-wrapper'>
             <div className='tracker-area-wrapper'>
               <p className='tracker-area-title'>Season</p>
               <div className='buttons-wrapper'>
-                <button className='action-button' onClick={(event) => updateSeason(event)}>-</button>
+                <button className='tracker-button' onClick={() => updateSeason('-')}>-</button>
                 <p className='current-number-tracker'>{season}</p>
-                <button className='action-button' onClick={(event) => updateSeason(event)}>+</button>
+                <button className='tracker-button' onClick={() => updateSeason('+')}>+</button>
               </div>
             </div>
             <div className='tracker-area-wrapper'>
               <p className='tracker-area-title'>Episode</p>
               <div className='buttons-wrapper'>
-                <button className='action-button' onClick={(event) => updateEpisode(event)}>-</button>
+                <button className='tracker-button' onClick={() => updateEpisode('-')}>-</button>
                 <p className='current-number-tracker'>{episode}</p>
-                <button className='action-button' onClick={(event) => updateEpisode(event)}>+</button>
+                <button className='tracker-button' onClick={() => updateEpisode('+')}>+</button>
               </div>
             </div>
           </div>

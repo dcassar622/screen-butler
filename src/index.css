@@ -2,13 +2,17 @@
 
 /******************** MACRO **********************/
 
+* {
+  overflow: scroll;
+}
+
 body {
-  margin: 0;
+  position: absolute;
+  margin: 0 auto;
   width: 100%;
   font-family:'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: all 3s ease-in-out;
 }
 
 code {
@@ -27,20 +31,13 @@ code {
 
 /******************** BUTTONS **********************/
 
-.action-button {
-  display: block;
-  width: 30%;
-  background-color: rgb(229, 238, 243);
+.action-btn {
+  border-radius: 5px;
 }
 
-.action-button:hover {
+.action-btn:hover {
+  background: rgb(214, 181, 209);
   cursor: pointer;
-}
-
-/******************** PAGES **********************/
-
-.pages-wrapper {
-  margin: 0 50px;
 }
 
 /******************** NAV **********************/
@@ -52,76 +49,187 @@ code {
   align-items: center;
 }
 
-
-.nav-right-content {
+#logo {
   position: absolute;
-  right: 0;
-  border: 10px solid yellow;
-  display: gflexrid;
+  left: 1%;
+  max-height: 50px;
 }
 
+/******************** NAV LOGGED OUT **********************/
 
-
-/******************** RESULT **********************/
-
-.result-wrapper {
-  max-width: 25%;
-  border: 3px solid rgb(216, 183, 179);
-  border-radius: 10px;
-}
-
-.result-button-wrapper {
-  background: red;
+.auth-btns-wrapper {
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-content: space-between;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.result-info-icon:hover {
-  transform: scale(1.2);
+/******************** NAV LOGGED IN **********************/
+
+.nav-links-wrapper {
+  display: flex;
+  justify-content: space-around;
+  width: 40%;
+  margin-left: 12%;
+}
+
+.nav-right-wrapper {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  width: 60%;
+  padding-right: 0;
+}
+
+.nav-link {
+  width: 100%;
+  text-align: center;
+}
+
+.nav-link:hover {
+  cursor: pointer;
+  transition: all ease-in-out 0.25s;
+  transform: scale(1.1);
+  background:rgb(158, 115, 115);
+}
+
+#username-wrapper {
+  margin-right: 50px;
+  font-size: 30px;
+  font-family: 'Indie Flower', cursive;
 }
 
 
-/******************** CURRENT SHOWS **********************/
+#logout-wrapper {
+  background: rosybrown;
+  padding: 0 20px;
+}
+
+#logout-wrapper:hover {
+  background: rgb(158, 115, 115);
+  cursor: pointer;
+}
+
+#logout-btn {
+  margin-left: 50px;
+}
+
+/******************** PAGES **********************/
+
+.pages-wrapper {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+/******************** SEARCH FORM **********************/
+
+#search-form-wrapper {
+  margin-top: 5%;
+  width: 30%;
+}
+
+#search-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid teal;
+  box-shadow: 1px 1px 10px teal;
+}
+
+#search-btn { 
+  margin-top: 10px;
+  width: 80%;
+  background-color: rgb(204, 224, 224);
+}
+
+#search-btn:hover { 
+  margin-top: 10px;
+  width: 80%;
+  background-color: rgb(224, 206, 223);
+}
+
+/******************** SHOW WRAPPERS **********************/
 
 .results-wrapper {
-  margin-top: 50px;
+  margin: 50px 0;
   width: 80%;
+  min-height: 100%;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
-.current-show-wrapper {
-  width: 20%;
-  border: 2px solid teal;
-  background: pink;
-  height: 100%;
+.show-wrapper {
+  margin: 0 auto;
+  width: 200px;
+  box-shadow: 1px 1px 1px teal;
+  background: #26a69a;
+  border-radius: 20px;
 }
 
 .show-image {
   height: 200px;
   width: 100%;
+  border-radius: 20px 20px 0 0 ;
 }
 
 .show-title { 
+  color: white;
   text-align: center;
   font-size: larger;
-  font-weight: bold;
+  font-weight: 600;
 }
+
+/******************** RESULT **********************/
+
+.show-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.result-button-wrapper {
+  display: flex;
+  justify-content: space-bet;
+  align-items: center;
+  padding: 0 5px 10px 5px;
+}
+
+
+/******************** CURRENT SHOWS **********************/
+
 
 .show-progress-wrapper {
   border-top: 1px solid black;
   background: white;
 }
 
+.tracker-area-wrapper:nth-child(2) {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
 .tracker-area-title {
   text-align: center;
 }
 
+.tracker-button {
+  display: block;
+  width: 30%;
+  background-color: rgb(229, 238, 243);
+}
+
+.tracker-button:hover {
+  cursor: pointer;
+  background-color: rgb(169, 184, 192);
+}
+
 .buttons-wrapper {
-  max-width: 100%;
+  max-height: 20px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -129,7 +237,8 @@ code {
 
 .current-number-tracker {
   font-weight: 600;
-  font-size: larger;
+  font-size: x-large;
+  color: #26a69a;
 }
 
 .curr-remove-btn {
@@ -137,4 +246,5 @@ code {
   display: block;
   margin: 0 auto;
   text-align: center;
+  border-radius: 0 0 20px 20px;
 }

@@ -66,7 +66,7 @@ const Pages = ({ currUser }) => {
 
 
     /**** Remove show from current shows collection then reload shows ****/
-    const removeFromPage = async (page, showToRemove, event) => {
+    const removeFromPage = async (page, showToRemove) => {
         const querySnapshot = await getDocs(collection(db, 'users', currUser.id, page))
         const docs = querySnapshot.docs
         docs.forEach(async doc => {

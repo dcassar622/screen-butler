@@ -6,18 +6,17 @@ const SearchForm = ( {updateResults} ) => {
     let searchQuery = document.getElementById('search-query').value;
 
     // get main show data
-    const fetchMainData = await fetch(`https://www.episodate.com/api/search?q=${searchQuery}&page=1`);
+    const fetchMainData = await fetch(`https://www.episodate.com/api/search?q=${searchQuery}&page=1`)
     const mainData = await fetchMainData.json();
     
-    updateResults(mainData);
+    mainData === '' ? updateResults([]) : updateResults(mainData);
   }
 
   return (
-      <div>
-        <form onSubmit={submitAndGetResults}>
-          
-          <input type='text' name='query' id='search-query' placeholder='Search' />
-          <input type='submit' value='Search'/>
+      <div id='search-form-wrapper'>
+        <form id='search-form' onSubmit={submitAndGetResults}>
+          <input type='text' name='query' id='search-query' placeholder='Series Title' />
+          <button type='submit' id='search-btn' className='action-btn'> Search </button>
         </form>
       </div>
   )

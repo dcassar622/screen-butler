@@ -7,6 +7,7 @@ import { initializeApp } from 'firebase/app';
 import Nav from './Nav';
 import Footer from './Footer';
 import Pages from './Pages';
+import LoggedOutPage from './LoggedOutPage';
 
 
 const firebaseConfig = {
@@ -98,7 +99,7 @@ function AuthWrapper() {
              modalOpen={modalOpen}
              signoutUser={signoutUser}
              currUser={currUser}/>
-        { isLoggedIn ? <Pages currUser={currUser} /> : '' }     
+        { isLoggedIn ? <Pages currUser={currUser} /> : <LoggedOutPage /> }     
         <Footer />
       </Router>
     </div>

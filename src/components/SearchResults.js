@@ -3,7 +3,7 @@ import Result from "./Result";
 const SearchResults = ( {results, metaResults, addToPage} ) => { 
 
 return  ( 
-    <div>
+    <div className='results-wrapper'>
         {results.map((result, index) => (
             <Result key={result.id} 
                     result={result}
