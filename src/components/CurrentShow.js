@@ -1,45 +1,36 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-const CurrentShow = ({show, removeFromPage}) => {
+const CurrentShow = ({ show, removeFromPage, updateShowProgress }) => {
 
   // set initial season and episode to 1 by default
-  let [season, setSeason] = useState(1)   
-  let [episode, setEpisode] = useState(1)
+  let [season, setSeason] = useState('')   
+  let [episode, setEpisode] = useState('')
 
+  useEffect(() => {
+    setSeason(show.season)
+    setEpisode(show.episode)
+  }, [show])
 
-  const updateSeason = (operator) => {
-    operator === '+' ? setSeason(season + 1) : (
-        season > 1 ? 
-        setSeason(season - 1) : alert(`season number must be at least 1`)
-      )
-  }
-
-  const updateEpisode = (operator) => {
-    operator === '+' ? setEpisode(episode + 1) : (
-        episode > 1 ? 
-        setEpisode(episode - 1) : alert(`episode number must be at least 1`)
-      )
-  }
 
   return (
-        <div className='show-wrapper'>
-          <img src={show.image_thumbnail_path} alt='show-poster' className='show-image'/>
-          <p className='show-title'>{show.name}</p>
+        <div className='show-wrapper' id={show.id}>
+          <img src={show.show.image_thumbnail_path} alt='show-poster' className='show-image'/>
+          <p className='show-title'>{show.show.name}</p>
           <div className='show-progress-wrapper'>
             <div className='tracker-area-wrapper'>
               <p className='tracker-area-title'>Season</p>
               <div className='buttons-wrapper'>
-                <button className='tracker-button' onClick={() => updateSeason('-')}>-</button>
+                <button className='tracker-button' onClick={() => updateShowProgress(show, '-', 'season')}>-</button>
                 <p className='current-number-tracker'>{season}</p>
-                <button className='tracker-button' onClick={() => updateSeason('+')}>+</button>
+                <button className='tracker-button' onClick={() => updateShowProgress(show, '+', 'season')}>+</button>
               </div>
             </div>
             <div className='tracker-area-wrapper'>
               <p className='tracker-area-title'>Episode</p>
               <div className='buttons-wrapper'>
-                <button className='tracker-button' onClick={() => updateEpisode('-')}>-</button>
+                <button className='tracker-button' onClick={() => updateShowProgress(show, '-', 'episode')}>-</button>
                 <p className='current-number-tracker'>{episode}</p>
-                <button className='tracker-button' onClick={() => updateEpisode('+')}>+</button>
+                <button className='tracker-button' onClick={() => updateShowProgress(show, '+', 'episode')}>+</button>
               </div>
             </div>
           </div>
