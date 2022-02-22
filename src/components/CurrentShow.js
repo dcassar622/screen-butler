@@ -14,8 +14,12 @@ const CurrentShow = ({ show, removeFromPage, updateShowProgress }) => {
 
   return (
         <div className='show-wrapper' id={show.id}>
-          <img src={show.show.image_thumbnail_path} alt='show-poster' className='show-image'/>
-          <p className='show-title'>{show.show.name}</p>
+           <div className='show-header-wrapper'>
+            <img src={show.show.image_thumbnail_path} alt='show-poster' className='show-image'/>
+            <div className='show-title-wrapper'>
+              <p className='show-title'>{show.show.name}</p>
+            </div>
+          </div>
           <div className='show-progress-wrapper'>
             <div className='tracker-area-wrapper'>
               <p className='tracker-area-title'>Season</p>

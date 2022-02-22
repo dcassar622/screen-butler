@@ -10,6 +10,7 @@ body {
   position: absolute;
   margin: 0 auto;
   width: 100%;
+  height: auto;
   font-family:'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -47,6 +48,7 @@ code {
   background-color: teal;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 #logo {
@@ -94,7 +96,7 @@ code {
 }
 
 #username-wrapper {
-  margin-right: 50px;
+  margin-right: 10rem;
   font-size: 30px;
   font-family: 'Indie Flower', cursive;
 }
@@ -103,6 +105,8 @@ code {
 #logout-wrapper {
   background: rosybrown;
   padding: 0 20px;
+  position: absolute;
+  right: 0;
 }
 
 #logout-wrapper:hover {
@@ -117,7 +121,7 @@ code {
 /******************** PAGES **********************/
 
 .pages-wrapper {
-  width: 80%;
+  width: 70%;
   height: 100%;
   margin: 0 auto;
 }
@@ -126,7 +130,7 @@ code {
 
 #search-form-wrapper {
   margin-top: 5%;
-  width: 30%;
+  width: 70%;
 }
 
 #search-form {
@@ -134,21 +138,25 @@ code {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 15px;
   border: 1px solid teal;
-  box-shadow: 1px 1px 10px teal;
+  border-radius: 20px;
+  box-shadow: 0 0 2px teal;
+}
+
+#search-query {
+  width: 90%;
 }
 
 #search-btn { 
-  margin-top: 10px;
+  margin-top: 20px;
   width: 80%;
-  background-color: rgb(204, 224, 224);
+  border-radius: 20px;
+  font-size: 1.1rem;
 }
 
 #search-btn:hover { 
-  margin-top: 10px;
-  width: 80%;
-  background-color: rgb(224, 206, 223);
+  background-color: rgb(204, 224, 224);
 }
 
 /******************** SHOW WRAPPERS **********************/
@@ -160,20 +168,35 @@ code {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  column-gap: 2rem;
+  row-gap: 2rem;
 }
 
 .show-wrapper {
-  margin: 0 auto;
   width: 200px;
-  box-shadow: 1px 1px 1px teal;
-  background: #26a69a;
+  box-shadow: 0 0 5px teal;
+  border: 1px solid teal;
   border-radius: 20px;
+}
+
+.show-header-wrapper {
+  position: relative;
 }
 
 .show-image {
   height: 200px;
   width: 100%;
   border-radius: 20px 20px 0 0 ;
+  z-index: -1;
+}
+
+.show-title-wrapper {
+  width: 100%;
+  background-color: rgba(192, 152, 152, 0.849);
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  margin-bottom: 5px;
 }
 
 .show-title { 
@@ -181,6 +204,8 @@ code {
   text-align: center;
   font-size: larger;
   font-weight: 600;
+  bottom: 0;
+  z-index: 1;
 }
 
 /******************** RESULT **********************/
@@ -194,9 +219,36 @@ code {
 
 .result-button-wrapper {
   display: flex;
-  justify-content: space-bet;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  padding: 0 5px 10px 5px;
+  height: 90px;
+  padding: 10px 0;
+  background-color: rgb(204, 224, 224);
+}
+
+.result-curr-btn {
+  width: 90%;
+  border-radius: 10px 10px 0 0;
+  background-color: rgb(247, 240, 247);
+  color: black;
+}
+
+.result-curr-btn:hover {
+  background-color: rgb(211, 185, 211);
+  cursor: pointer;
+}
+
+.result-wishlist-btn {
+  width: 90%;
+  color: white;
+  background-color: rosybrown;
+  border-radius: 0 0 10px 10px;
+}
+
+.result-wishlist-btn:hover {
+  background-color: rgb(146, 94, 94) !important;
+  cursor: pointer;
 }
 
 
@@ -204,8 +256,8 @@ code {
 
 
 .show-progress-wrapper {
-  border-top: 1px solid black;
   background: white;
+  text-align: center;
 }
 
 .tracker-area-wrapper:nth-child(2) {
@@ -248,3 +300,159 @@ code {
   text-align: center;
   border-radius: 0 0 20px 20px;
 }
+
+/******************** WISHLIST **********************/
+
+.wishlist-info-wrapper {
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.wishlist-buttons-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 90px;
+  padding: 10px 0;
+  background-color: rgb(204, 224, 224);
+}
+
+.wishlist-curr-btn {
+  width: 90%;
+  border-radius: 10px 10px 0 0;
+  background-color: rgb(247, 240, 247);
+  color: black;
+}
+
+.wishlist-curr-btn:hover {
+  background-color: rgb(211, 185, 211);
+}
+
+.wishlist-remove-btn {
+  width: 90%;
+  color: white;
+  background-color: rosybrown;
+  border-radius: 0 0 10px 10px;
+}
+
+.wishlist-remove-btn:hover {
+  background-color: rgb(146, 94, 94) !important;
+}
+
+#wishlist-show-wrapper {
+  box-shadow: 0 0 2px teal;
+}
+
+
+
+/******************** WISHLIST **********************/
+
+/** Small Laptops & Tablets (landscape) **/
+
+@media only screen and (min-width:769px) and (max-width:1024px) {
+  .nav-links.wrapper {
+    width: 60%;
+  }
+
+  .nav-right-wrapper {
+    width: 40%;
+  }
+
+  #username-wrapper {
+    margin-right: 8rem;
+    font-size: 24px;
+  }
+}
+
+/** Tablets & Larger Phones (landscape) **/
+
+@media only screen and (min-width:481px) and (max-width:768px) {
+
+  .nav-links-wrapper {
+    display: flex;
+    width: 60%;
+    margin-left: 0;
+  }
+
+  .nav-right-wrapper {
+    width: 40%;
+  }
+
+  #logo {
+    display: none;
+  }
+
+  #username-wrapper {
+    margin-right: 8rem;
+    font-size: 16px;
+  }
+
+  #search-form {
+    margin-top: 20px;
+    padding: 0;
+    border: 1px solid teal;
+    border-radius: 20px;
+    box-shadow: 0 0 2px teal;
+  }
+  
+  #search-query {
+    width: 90%;
+  }
+  
+  #search-btn { 
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 0;
+  }
+}
+
+/** Phones **/
+
+@media only screen and (min-width:320px) and (max-width:480px) {
+
+  #search-form-wrapper {
+    width: 100%;
+  }
+
+  .nav-links-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    margin-left: 5%;
+  }
+
+  .nav-right-wrapper {
+    width: 40%;
+  }
+
+  #logo {
+    display: none;
+  }
+
+  #username-wrapper {
+    display: none;
+  }
+  
+  #search-form {
+    margin-top: 20px;
+    padding: 0;
+    border: 1px solid teal;
+    border-radius: 20px;
+    box-shadow: 0 0 2px teal;
+  }
+  
+  #search-query {
+    width: 90%;
+  }
+  
+  #search-btn { 
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 0;
+  }
+  
+}
+
+
+

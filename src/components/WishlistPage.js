@@ -5,7 +5,7 @@ const WishlistPage = ({ wishlist, addToPage, removeFromPage}) => {
   return (
     <>
     { wishlist.length > 0 ? (
-    <div>
+    <div className='results-wrapper'>
       {wishlist.map(show => (
         <WishlistShow key={show.id} show={show} addToPage={addToPage} removeFromPage={removeFromPage} />
       ))}

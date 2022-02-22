@@ -16,7 +16,10 @@ const SearchForm = ( {updateResults} ) => {
       <div id='search-form-wrapper'>
         <form id='search-form' onSubmit={submitAndGetResults}>
           <input type='text' name='query' id='search-query' placeholder='Series Title' />
-          <button type='submit' id='search-btn' className='action-btn'> Search </button>
+          <button type='submit' id='search-btn' 
+                  className='waves-effect waves-light btn-small'> 
+                    Search 
+          </button>
         </form>
       </div>
   )

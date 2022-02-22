@@ -1,13 +1,26 @@
 
 const WishlistShow = ({show, addToPage, removeFromPage}) => {
   return (
-    <div>
-      <img src={show.show.image_thumbnail_path} alt='show-poster' />
-        <p> {show.show.name} </p>
-        <p> {show.show.start_date.substring(0,4)} </p>
-        <p> {show.show.network} </p>
-        <button onClick={() => addToPage(show, 'current')}>Add To Current</button>
-        <button id='wishlist-remove-btn' onClick={() => removeFromPage('wishlist', show)}>Remove</button>
+    <div className='show-wrapper'>
+      <div className='show-header-wrapper'>
+        <img src={show.show.image_thumbnail_path} alt='show-poster' className='show-image'/>
+        <div className='show-title-wrapper'>
+          <p className='show-title'> {show.show.name} </p>
+        </div>
+      </div>
+      <div className='show-progress-wrapper wishlist-info-wrapper'>
+        <p> {show.show.start_date.substring(0,4)} ({show.show.network}) </p>
+      </div>
+      <div className='wishlist-buttons-wrapper'>
+        <button onClick={() => addToPage(show, 'current')}
+                className='wishlist-curr-btn waves-effect waves-light btn-small'>
+          Add To Current
+        </button>
+        <button className='wishlist-remove-btn waves-effect waves-light btn-small'
+                onClick={() => removeFromPage('wishlist', show)}>
+          Remove
+        </button>
+      </div>
     </div>
   )
 }

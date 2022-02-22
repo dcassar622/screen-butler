@@ -7,7 +7,7 @@ const NavLoggedIn = ({ signoutUser, currUser }) => {
       <img src={logo} alt='logo' id='logo'/>
       <div className='nav-links-wrapper'>
         <Link className='nav-link' to='/'>Search</Link>
-        <Link className='nav-link' to='current-shows'>Current Shows</Link> 
+        <Link className='nav-link' to='current-shows'>Current</Link> 
         <Link className='nav-link' to='wishlist'>Wishlist</Link>
       </div> 
       <div className='nav-right-wrapper'>

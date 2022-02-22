@@ -69,7 +69,6 @@ const Pages = ({ currUser }) => {
         const querySnapshot = await getDocs(collection(db, 'users', currUser.id, page))
         const docs = querySnapshot.docs
         docs.forEach(async doc => {
-            console.log(doc.data().show, showToRemove.show.id)
             if (doc.data().show.id === showToRemove.show.id) { 
                 await deleteDoc(doc.ref);
             }
@@ -86,12 +85,9 @@ const Pages = ({ currUser }) => {
         const docs = querySnapshot.docs
         docs.forEach(async doc => {
             const docShowData = doc.data();
-            console.log(docShowData)
-            console.log(docShowData.show.id, show.show.id)
             if (docShowData.show.id === show.show.id) {
                 if (feature === 'season') {
                     const currValue = docShowData.season;
-                    console.log(currValue)
                     await operand === '+' ? 
                     updateDoc(doc.ref, {season : currValue + 1}) : updateDoc(doc.ref, {season : currValue - 1})
                 }
