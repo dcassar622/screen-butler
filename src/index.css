@@ -10,10 +10,14 @@ body {
   position: absolute;
   margin: 0 auto;
   width: 100%;
-  height: auto;
+  height: 100%;
   font-family:'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+p { 
+    margin: 0.5em;
 }
 
 code {
@@ -80,7 +84,6 @@ code {
   justify-content: right;
   align-items: center;
   width: 60%;
-  padding-right: 0;
 }
 
 .nav-link {
@@ -99,14 +102,14 @@ code {
   margin-right: 10rem;
   font-size: 30px;
   font-family: 'Indie Flower', cursive;
+  position: relative;
 }
-
 
 #logout-wrapper {
   background: rosybrown;
   padding: 0 20px;
   position: absolute;
-  right: 0;
+  right: -10px;
 }
 
 #logout-wrapper:hover {
@@ -121,24 +124,34 @@ code {
 /******************** PAGES **********************/
 
 .pages-wrapper {
-  width: 70%;
+  width: 100%;
   height: 100%;
   margin: 0 auto;
+  background-color: rgb(242, 245, 248);
+  background-image: url(./reel-background-bw.jpg);
+  background-size: cover;                     
+  background-repeat: no-repeat;
+  background-position: center center; 
 }
 
 /******************** SEARCH FORM **********************/
 
 #search-form-wrapper {
-  margin-top: 5%;
-  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+  width: 100%;
 }
 
 #search-form {
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 15px;
+  background:rgb(229, 238, 243);
   border: 1px solid teal;
   border-radius: 20px;
   box-shadow: 0 0 2px teal;
@@ -162,18 +175,46 @@ code {
 /******************** SHOW WRAPPERS **********************/
 
 .results-wrapper {
-  margin: 50px 0;
-  width: 80%;
-  min-height: 100%;
+  overflow: scroll;
+  padding: 50px 100px;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   column-gap: 2rem;
   row-gap: 2rem;
+  background-color: rgb(204, 224, 224, 0.25);    
+}
+
+.results-wrapper-no-shows {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(242, 245, 248);
+  /*background-image: url(./reel-background-bw.jpg);*/
+  background-size: cover;                     
+  background-repeat: no-repeat;
+  background-position: center center; 
+}
+
+.page-intro-wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(253, 253, 253, 0.61);
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .show-wrapper {
   width: 200px;
+  height: auto;
   box-shadow: 0 0 5px teal;
   border: 1px solid teal;
   border-radius: 20px;
@@ -187,16 +228,13 @@ code {
   height: 200px;
   width: 100%;
   border-radius: 20px 20px 0 0 ;
-  z-index: -1;
 }
 
 .show-title-wrapper {
   width: 100%;
   background-color: rgba(192, 152, 152, 0.849);
   position: absolute;
-  bottom: 0;
-  z-index: 1;
-  margin-bottom: 5px;
+  top: 0;
 }
 
 .show-title { 
@@ -205,7 +243,7 @@ code {
   font-size: larger;
   font-weight: 600;
   bottom: 0;
-  z-index: 1;
+  margin: 0.25em;
 }
 
 /******************** RESULT **********************/
@@ -254,10 +292,10 @@ code {
 
 /******************** CURRENT SHOWS **********************/
 
-
 .show-progress-wrapper {
   background: white;
   text-align: center;
+  margin-top: -5px;
 }
 
 .tracker-area-wrapper:nth-child(2) {
@@ -305,7 +343,10 @@ code {
 
 .wishlist-info-wrapper {
   height: 40px;
-  margin-bottom: 10px;
+}
+
+.wishlist-title-wrapper {
+  background-color: rgba(0, 128, 128, 0.596);
 }
 
 .wishlist-buttons-wrapper {
@@ -313,14 +354,14 @@ code {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 90px;
+  height: 100px;
   padding: 10px 0;
   background-color: rgb(204, 224, 224);
 }
 
 .wishlist-curr-btn {
   width: 90%;
-  border-radius: 10px 10px 0 0;
+  border-radius: 10px;
   background-color: rgb(247, 240, 247);
   color: black;
 }
@@ -332,8 +373,8 @@ code {
 .wishlist-remove-btn {
   width: 90%;
   color: white;
-  background-color: rosybrown;
-  border-radius: 0 0 10px 10px;
+  background-color: rgb(156, 133, 133);
+  border-radius: 10px;
 }
 
 .wishlist-remove-btn:hover {

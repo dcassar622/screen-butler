@@ -29,6 +29,10 @@ const SearchPage = ( { addToPage } ) => {
 
     return (
         <div>
+            <div className='page-intro-wrapper'>
+                <h4>Search Shows</h4>
+                <p> Look up TV shows and add them to your currently watching or wishlist page!</p>
+            </div>   
             <SearchForm updateResults={updateResults}/>
             { noResultsFound ? <h4>No Results Found</h4> : 
                 <SearchResults 

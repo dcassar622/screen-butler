@@ -79,12 +79,18 @@ const Pages = ({ currUser }) => {
         getShows(page);
     }
 
+   
+    /****  Track and write updates made to the curent show (season and episode number) 
+           Operand can be + or - and feature is either 'season' or 'episode'  ***/
+
     const updateShowProgress = async (show, operand, feature) => {
-        // get all of user's current shows
+        // get all of the user's current shows
         const querySnapshot = await getDocs(collection(db, 'users', currUser.id, 'current'))
         const docs = querySnapshot.docs
+        // match the current show being updated to the docs in the database
         docs.forEach(async doc => {
             const docShowData = doc.data();
+            // when match is found, make the necessary updates to that show's database document
             if (docShowData.show.id === show.show.id) {
                 if (feature === 'season') {
                     const currValue = docShowData.season;
@@ -119,7 +125,9 @@ const Pages = ({ currUser }) => {
             <Route path='/' 
                 element={<SearchPage addToPage={addToPage}/>} exact />
             <Route path='current-shows' 
-                element={<CurrentlyWatchingPage currShows={current} 
+                element={<CurrentlyWatchingPage 
+                currUser={currUser}
+                currShows={current} 
                 removeFromPage={removeFromPage}
                 updateShowProgress={updateShowProgress} />}
              />
