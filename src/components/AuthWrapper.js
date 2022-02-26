@@ -7,7 +7,7 @@ import { initializeApp } from 'firebase/app';
 import Nav from './Nav';
 import Footer from './Footer';
 import Pages from './Pages';
-import LoggedOutPage from './LoggedOutPage';
+
 
 
 const firebaseConfig = {
@@ -64,7 +64,12 @@ function AuthWrapper() {
           email : email, 
           password : password,
           id: userData.user.uid
-        }).then(setModalOpen(false))  
+        }).then(() => {
+          setSignupAuthError(`Sign Up Successful! You can now LOGIN to use the app... redirecting you back to homepage!`)
+          setTimeout(() => {
+            window.location.reload();
+          }, 4000)
+        })  
       }).catch(error => {
         let errorString = error.message;
         let subString = errorString.substring(errorString.indexOf('/') + 1, errorString.indexOf(')'));
@@ -99,7 +104,7 @@ function AuthWrapper() {
              modalOpen={modalOpen}
              signoutUser={signoutUser}
              currUser={currUser}/>
-        { isLoggedIn ? <Pages currUser={currUser} /> : <LoggedOutPage /> }     
+        <Pages currUser={currUser} isLoggedIn={isLoggedIn}/>      
         <Footer />
       </Router>
     </div>

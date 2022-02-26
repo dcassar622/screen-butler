@@ -6,8 +6,9 @@ import { addDoc, deleteDoc, collection, getDocs, getFirestore, updateDoc } from 
 import SearchPage from './SearchPage';
 import CurrentlyWatchingPage from './CurrentlyWatchingPage';
 import WishlistPage from './WishlistPage';
+import LoggedOutPage from './LoggedOutPage';
 
-const Pages = ({ currUser }) => {
+const Pages = ({ currUser, isLoggedIn }) => {
 
     const db = getFirestore();     // invokes firebase firestore
     let [current, setCurrentShows] = useState([]);
@@ -121,7 +122,8 @@ const Pages = ({ currUser }) => {
   
     return (
     <div className='pages-wrapper'>
-        <Routes>
+        {isLoggedIn ? (
+            <Routes>
             <Route path='/' 
                 element={<SearchPage addToPage={addToPage}/>} exact />
             <Route path='current-shows' 
@@ -134,6 +136,8 @@ const Pages = ({ currUser }) => {
             <Route path='wishlist' 
                 element={<WishlistPage wishlist={wishlist}  addToPage={addToPage} removeFromPage={removeFromPage}/>} /> 
         </Routes>
+        ) : <LoggedOutPage />}
+        
     </div>
   );
 }

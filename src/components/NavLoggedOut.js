@@ -7,7 +7,7 @@ const NavLoggedOut = ({ loginUser, loginAuthError, signupAuthError, clearAuthErr
   return (
     <nav className='navbar-main'>
       <div className='auth-btns-wrapper'>
-          <img src={logo} alt='logo' id='logo'/>
+          <img src={logo} alt='logo' id='logo-logged-out'/>
           <Login loginUser={loginUser} loginAuthError={loginAuthError} clearAuthError={clearAuthError} />
           <Signup signupUser={signupUser} signupAuthError={signupAuthError} clearAuthError={clearAuthError} modalOpen={modalOpen}/>
       </div>

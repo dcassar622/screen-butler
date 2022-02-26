@@ -70,7 +70,7 @@ const Signup = ({signupUser, signupAuthError, clearAuthError, modalOpen }) => {
               preventScrolling: true,
               startingTop: '4%'
             }}
-            trigger={<Button node="button">Signup</Button>}
+            trigger={<p node="button" className='auth-link' id='signup-link'>Signup</p>}
           >
            <input type='text' name='signup-name' id='signup-name' placeholder='Name 'onChange={(event) => handleChange(event)}></input>
            <input type='email' name='signup-email' id='signup-email' placeholder='Email' onChange={(event) => handleChange(event)}></input>

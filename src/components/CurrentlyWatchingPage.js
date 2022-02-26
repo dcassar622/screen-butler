@@ -24,8 +24,6 @@ const CurrentlyWatchingPage = ({ currUser, currShows, removeFromPage, updateShow
           <h5>You have no shows added here at the moment, but...</h5> 
           <p>You can add some from the Search or the Wishlist page :)</p> 
       </div> 
-      <div className='results-wrapper-no-shows'>
-      </div>
       </>
     }
 

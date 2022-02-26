@@ -55,7 +55,7 @@ const Login = ({loginUser, loginAuthError, clearAuthError}) => {
               preventScrolling: true,
               startingTop: '4%'
             }}
-            trigger={<Button node="button">Login</Button>}
+            trigger={<p node="button" className='auth-link'>Login</p>}
           >
             <input type='email' name='login-email' id='login-email' 
                    placeholder='Email' onChange={(event) => handleChangeEmail(event)} />

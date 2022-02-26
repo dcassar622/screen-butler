@@ -3,10 +3,20 @@
 /******************** MACRO **********************/
 
 * {
+  overflow: scroll !important;
+}
+
+html {
+  overflow: scroll !important;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   overflow: scroll;
+  margin: 0 auto;
 }
 
 body {
+  overflow: scroll !important;
   position: absolute;
   margin: 0 auto;
   width: 100%;
@@ -55,19 +65,34 @@ code {
   justify-content: center;
 }
 
-#logo {
-  position: absolute;
-  left: 1%;
-  max-height: 50px;
-}
-
 /******************** NAV LOGGED OUT **********************/
 
 .auth-btns-wrapper {
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: right;
   align-items: center;
+  padding-right: 5%;
+}
+.auth-link {
+  font-size: 1.3rem;
+}
+
+.auth-link:hover {
+  cursor: pointer;
+  color:rgb(209, 181, 181);
+  transition: all ease-in-out 0.25s;
+  transform: scale(1.1);
+}
+
+#logo-logged-out {
+  position: absolute;
+  left: 1%;
+  max-height: 50px;
+}
+
+#signup-link {
+  margin-left: 50px;
 }
 
 /******************** NAV LOGGED IN **********************/
@@ -91,11 +116,21 @@ code {
   text-align: center;
 }
 
+.nav-link:active {
+  color:rgb(158, 115, 115);
+}
+
 .nav-link:hover {
   cursor: pointer;
   transition: all ease-in-out 0.25s;
   transform: scale(1.1);
   background:rgb(158, 115, 115);
+}
+
+#logo {
+  position: absolute;
+  left: 1%;
+  max-height: 50px;
 }
 
 #username-wrapper {
@@ -124,8 +159,10 @@ code {
 /******************** PAGES **********************/
 
 .pages-wrapper {
+  overflow: scroll;
+  scroll-behavior: smooth;
   width: 100%;
-  height: 100%;
+  min-height: calc(100vh - 100px);
   margin: 0 auto;
   background-color: rgb(242, 245, 248);
   background-image: url(./reel-background-bw.jpg);
@@ -134,7 +171,11 @@ code {
   background-position: center center; 
 }
 
-/******************** SEARCH FORM **********************/
+/******************** SEARCH PAGE **********************/
+
+.search-page-on-load {
+  padding-bottom: 200px;
+}
 
 #search-form-wrapper {
   display: flex;
@@ -176,29 +217,16 @@ code {
 
 .results-wrapper {
   overflow: scroll;
+  scroll-behavior: smooth;
   padding: 50px 100px;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   column-gap: 2rem;
   row-gap: 2rem;
   background-color: rgb(204, 224, 224, 0.25);    
-}
-
-.results-wrapper-no-shows {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-  background-color: rgb(242, 245, 248);
-  /*background-image: url(./reel-background-bw.jpg);*/
-  background-size: cover;                     
-  background-repeat: no-repeat;
-  background-position: center center; 
 }
 
 .page-intro-wrapper {
@@ -210,6 +238,10 @@ code {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.page-intro-wrapper > h4, .page-intro-wrapper > h5, .page-intro-wrapper > p {
+  padding: 0;
 }
 
 .show-wrapper {
@@ -385,9 +417,21 @@ code {
   box-shadow: 0 0 2px teal;
 }
 
+/******************** FOOTER **********************/
 
+.footer-wrapper {
+  /*position: absolute;
+  bottom: 0;*/
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  color: white;
+  padding: 0 10px;
+}
 
-/******************** WISHLIST **********************/
+/******************** RESPONSIVE / MEDIA QUERIES **********************/
 
 /** Small Laptops & Tablets (landscape) **/
 
@@ -404,6 +448,10 @@ code {
     margin-right: 8rem;
     font-size: 24px;
   }
+
+  .page-intro-wrapper > h5{
+    font-size: 1.4rem;
+  }
 }
 
 /** Tablets & Larger Phones (landscape) **/
@@ -419,6 +467,7 @@ code {
   .nav-right-wrapper {
     width: 40%;
   }
+
 
   #logo {
     display: none;
@@ -446,6 +495,10 @@ code {
     width: 100%;
     border-radius: 0;
   }
+
+  .page-intro-wrapper > h5{
+    font-size: 1.2rem;
+  }
 }
 
 /** Phones **/
@@ -454,6 +507,7 @@ code {
 
   #search-form-wrapper {
     width: 100%;
+    padding: 10px 0 20px 0;
   }
 
   .nav-links-wrapper {
@@ -491,6 +545,28 @@ code {
     margin-top: 20px;
     width: 100%;
     border-radius: 0;
+  }
+
+  .pages-wrapper {
+    min-height: calc(100vh - 70px);  
+  }
+
+  .page-intro-wrapper > h5{
+    font-size: 1.1rem;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .auth-btns-wrapper > p {
+    font-size: 1.1rem;
+  }
+
+  #signup-link {
+    margin-left: 30px;
+  }
+
+  .footer-wrapper > p {
+    font-size: 0.5rem;
   }
   
 }

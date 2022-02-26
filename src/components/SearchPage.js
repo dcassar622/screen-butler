@@ -6,7 +6,6 @@ const SearchPage = ( { addToPage } ) => {
 
     const [results, setResults] = useState([])
     const [metaResults, setMetaResults] = useState([])
-    const [noResultsFound, setNoResultsFound] = useState()
 
     const setMetaData = (shows) => {
         shows.forEach(async (item) => {
@@ -17,14 +16,8 @@ const SearchPage = ( { addToPage } ) => {
     }
 
     const updateResults = (mainData) => {
-        if (mainData !==[]) {
-            setNoResultsFound(false)
-            setResults(mainData.tv_shows)
-            setMetaData(mainData.tv_shows)
-        }
-        else {
-            setNoResultsFound(true)
-        }
+        setResults(mainData.tv_shows)
+        setMetaData(mainData.tv_shows)
     }
 
     return (
@@ -34,12 +27,11 @@ const SearchPage = ( { addToPage } ) => {
                 <p> Look up TV shows and add them to your currently watching or wishlist page!</p>
             </div>   
             <SearchForm updateResults={updateResults}/>
-            { noResultsFound ? <h4>No Results Found</h4> : 
-                <SearchResults 
-                           results={results}
-                           metaResults={metaResults}
-                           addToPage={addToPage}
-                           />}
+            <SearchResults 
+                results={results}
+                metaResults={metaResults}
+                addToPage={addToPage}
+            />
         </div>
     )
 };
